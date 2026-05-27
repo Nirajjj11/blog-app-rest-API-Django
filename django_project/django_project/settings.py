@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     
     # for custom app    
     "accounts.apps.AccountsConfig",
+    "posts",
 ]
 
 MIDDLEWARE = [
