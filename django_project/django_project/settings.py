@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 ]
 
 # for Django Rest Framework
-REST_FRAMEWORK = { # new
+REST_FRAMEWORK = { 
 "DEFAULT_PERMISSION_CLASSES": [
 "rest_framework.permissions.AllowAny",
 ],
