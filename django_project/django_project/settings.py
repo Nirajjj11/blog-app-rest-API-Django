@@ -40,10 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # for django rest framework
+    "rest_framework", 
+    
     # for custom app    
     "accounts.apps.AccountsConfig",
     "posts",
 ]
+
+# for Django Rest Framework
+REST_FRAMEWORK = { # new
+"DEFAULT_PERMISSION_CLASSES": [
+"rest_framework.permissions.AllowAny",
+],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
