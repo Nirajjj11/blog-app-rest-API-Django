@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     # for django rest framework
     "rest_framework", 
     
+    # for CORS HEADER
+    "corsheaders", 
+    
     # for custom app    
     "accounts.apps.AccountsConfig",
     "posts",
@@ -63,9 +66,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    # for CORS Header
+    "corsheaders.middleware.CorsMiddleware", 
 ]
 
 ROOT_URLCONF = 'django_project.urls'
+
+# for CORS Header
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:3000",
+    "http://localhost:8000",
+)
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]            # for csrf_token came from the port
 
 TEMPLATES = [
     {

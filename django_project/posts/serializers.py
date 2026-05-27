@@ -7,7 +7,7 @@ class PostSerializer(serializers.ModelSerializer):
             fields = (
                   "id",
                   "author",
-                  "titles",
+                  "title",
                   "body",
                   "created_at",
             )
