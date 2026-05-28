@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     # for CORS HEADER
     "corsheaders", 
     
+    # for authentication
+    'rest_framework.authtoken',
+    
     # for custom app    
     "accounts.apps.AccountsConfig",
     "posts",
