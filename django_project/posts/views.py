@@ -8,7 +8,7 @@ from .serializers import PostSerializer
 from .permissions import IsAuthorOrReadOnly 
 
 class PostList(generics.ListCreateAPIView):
-      pagination_class = (IsAuthorOrReadOnly,)
+      pagination_classes = (IsAuthorOrReadOnly,)
       queryset = Post.objects.all()
       serializer_class = PostSerializer
 
