@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # 3rd - party apps -----------------------------------
+    
     # for django rest framework
     "rest_framework", 
     
@@ -49,7 +51,9 @@ INSTALLED_APPS = [
     # for authentication
     'rest_framework.authtoken',
     
-    # for custom app    
+    "dj_rest_auth",
+    
+    # for custom app   ------------------------------------- 
     "accounts.apps.AccountsConfig",
     "posts",
 ]
