@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",
     
     # 3rd - party apps -----------------------------------
     
@@ -52,6 +53,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     
     "dj_rest_auth",
+    
+    # for authentication like directly from google, fb, and other
+    "allauth", 
+    "allauth.account", 
+    "allauth.socialaccount",
+    "dj_rest_auth.registration",
     
     # for custom app   ------------------------------------- 
     "accounts.apps.AccountsConfig",
@@ -77,15 +84,20 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # cors should be high in middleware
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    # allauth middleware
+    'allauth.account.middleware.AccountMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    # for CORS Header
-    "corsheaders.middleware.CorsMiddleware", 
 ]
 
 ROOT_URLCONF = 'django_project.urls'
@@ -108,6 +120,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.request",
             ],
         },
     },
@@ -115,6 +128,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # new
+SITE_ID = 1 # new
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
@@ -151,12 +166,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
